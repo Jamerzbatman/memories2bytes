@@ -1,0 +1,270 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+nav {
+    background-color: #1F1F1F; /* Darker green */
+    color: #e0e0e0; /* Light text color */
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #e0e0e0; /* Light text color */
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1F1F1F; /* Dark footer */
+    color: #e0e0e0; /* Light text color */
+}
+
+.hero {
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Uses flexbox for centering content */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    text-align: center; /* Centers text */
+    position: relative; /* Ensure the position is set */
+    overflow: hidden; /* Prevents overflow */
+    color: #e0e0e0; /* Gold color for text */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+
+}
+
+.overlay {
+    position: absolute; /* Position overlay absolutely */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    right: 0; /* Align to right */
+    bottom: 0; /* Align to bottom */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    z-index: 1; /* Ensure it's behind the text */
+}
+
+
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Gold color for headings */
+}
+
+section {
+    padding: 60px 0;
+}
+
+.btn-warning {
+    color: #000; /* Adjust button color as needed */
+    background-color: #FFD700; /* Gold button for visibility */
+    border: none;
+}
+h1, p {
+    margin: 0; /* Remove default margin for better alignment */
+}
+.btn-warning:hover {
+    background-color: #FFC107; /* Slightly darker on hover */
+}
+.container  {
+    padding: 10px; /* Remove padding */
+    margin: 0; /* Remove margin */
+    max-width: 100%; /* Allow it to take full width */
+    position: relative; /* Ensure the container is positioned relative to the overlay */
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+.card {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none; /* Remove default card border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.card-body {
+    position: relative;
+    padding: 20px; /* Padding inside the card */
+    border-radius: 10px;
+    z-index: 2;
+
+    
+}
+
+.card-title {
+    font-size: 1.25rem; /* Font size for titles */
+    color: #343a40; /* Dark text color for better contrast */
+    font-weight: bold; /* Bold titles */
+}
+
+.card-text {
+    color: #6c757d; /* Slightly muted text color for description */
+    margin-top: 10px; /* Spacing above the text */
+}
+
+/* Icon styling */
+.card i {
+    color: #343a40; /* Gold color for icons */
+}
+.overlay-image {
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.7; /* Add this to make the image semi-transparent */
+}
+
+.overlay-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Adjust opacity if needed */
+    z-index: 1; /* Keep it above the image but below the text */
+}
+/* General styling for images */
+img.img-fluid {
+    width: 70%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect on images */
+img.img-fluid:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Spacing between images and text */
+.col-md-6 img {
+    margin-bottom: 20px; /* Add spacing below the image */
+}
+
+/* Ensures images remain responsive and centered */
+@media (max-width: 768px) {
+    img.img-fluid {
+        margin: 0 auto; /* Center image on smaller screens */
+    }
+}
+.text-content {
+    max-width: 500px; /* Set a maximum width for the text */
+    margin: 0 auto; /* Center the text block */
+}
+
+/* Optional: You can add a frame effect to further highlight images */
+img.img-frame {
+    border: 3px solid #FFD700; /* Gold border to match the site's theme */
+    padding: 5px;
+    border-radius: 10px;
+}
+.about-header {
+    position: relative;
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    height: 20vh; /* Set the height to 10% of the viewport height */
+    display: flex; /* Use flexbox to center the content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    color: #e0e0e0; /* Gold color for the text */
+}
+.about-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity for the overlay */
+    z-index: 1; /* Place the overlay behind the text */
+}
+.modal-content {
+    background-color: #343a40; /* Dark background matching navbar */
+    color: #e0e0e0; /* Light text color */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.modal-header {
+    border-bottom: 1px solid #212529; /* Gold border at the bottom */
+    background-color: #212529; /* Darker background for header */
+}
+
+.modal-title {
+    color: #e0e0e0; /* Gold title color */
+}
+
+.modal-body {
+    padding: 20px; /* Add some padding */
+}
+
+.modal-footer {
+    background-color: #212529; /* Darker background for footer */
+    border-top: 1px solid #212529;
+}
+
+.btn-primary {
+    background-color: #FFD700; /* Gold button */
+    border-color: #FFD700; /* Gold border for button */
+    color:black;
+}
+
+.btn-primary:hover {
+    background-color: #e0b700; /* Slightly darker gold on hover */
+    border-color: #e0b700; /* Darker border on hover */
+}
+
+.input-group-text, .form-control {
+    background-color: #343a40; /* Dark input backgrounds */
+    color: #212529; /* Light input text */
+    border: 1px solid #212529; /* Gold border */
+}
+.col-md-6 img {
+    margin-right: 0; 
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+.col-md-5 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0; 
+    margin-left: 0;
+}
