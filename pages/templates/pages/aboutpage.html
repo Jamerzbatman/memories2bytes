@@ -1,0 +1,117 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}About - Memories2Bytes{% endblock %}
+
+{% block content %}
+<header class="about-header" style="background-image: url('{% static 'images/pages/aboutUs.jpg' %}');">
+    <div class="container">
+        <h1 class="text-center mb-4">About Memories2Bytes</h1>
+    </div>
+</header>
+
+<section class="py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 text-right">
+                <img src="{% static 'images/pages/family.jpg' %}" alt="Family Image" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-2 text-left">
+                <div class="row justify-content-left">
+                    <div class="col-md-8">
+                        <p class="lead">We are a family-owned business dedicated to preserving your memories. At Memories2Bytes, our passion for technology and nostalgia drove us to create a company focused on transferring analog media to digital formats.</p>
+                        <p>Founded by myself, <strong>Jamie Wilson</strong>, and my son <strong>Shane Wilson</strong>, we’ve always loved tech and tinkering. Together, we transformed this passion into a way to help others preserve their cherished memories for future generations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+</section>
+
+
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+
+                <h2 class="text-center">Why Choose Us?</h2>
+                <p class="text-center mb-5" style="color: #e0e0e0;">At Memories2Bytes, we are passionate about preserving your precious memories. Our experienced team ensures that every piece of media is treated with care, using the best techniques and equipment to deliver high-quality digital conversions.</p>
+        
+            </div>
+        </div>
+        <div class="row">
+            <!-- Card 1: Expert Handling -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-tape fa-3x mb-3"></i> <!-- Audio Icon -->
+                        <h5 class="card-title">Expert Handling</h5>
+                        <p class="card-text">We treat every tape, cassette, or image as if it were our own, ensuring careful cleaning and expert care in every conversion.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Audio background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 2: Cutting-Edge -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-cogs fa-3x mb-3"></i> <!-- Video Icon -->
+                        <h5 class="card-title">Cutting-Edge Technology</h5>
+                        <p class="card-text">With years of technical experience, we use top-tier equipment to deliver the best quality digital conversion of your media.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Video background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 3: A Labor of Love -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-heart fa-3x mb-3"></i> <!-- Image Icon -->
+                        <h5 class="card-title">A Labor of Love</h5>
+                        <p class="card-text">This isn’t just a business to us—it’s a personal mission to help you save precious moments for generations to come.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image background image overlay -->
+                </div>
+            </div>
+        </div>
+        <!-- Trust Section -->
+        <div class="trust-section text-center mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+
+                    <p style="color: #e0e0e0;">This is why we care: We understand that your memories are invaluable, and our dedicated team is committed to preserving them with the utmost care. Utilizing state-of-the-art technology, we ensure the highest quality for every media format. Whether it’s an old video tape, a cherished photo album, or a priceless audio recording, we treat each project as if it were our own. Choosing us means choosing experience, precision, and a deep respect for the memories that matter most to you.</p>
+        
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 text-right"> 
+                <div class="row justify-content-right">
+                    <div class="col-md-8">
+                        <p class="lead">From VHS tapes and audio cassettes to old photos, we convert all forms of media into high-quality digital formats. Whether it’s restoring old home videos or making your favorite mixtapes accessible again, our process ensures the best possible results for every project.</p>
+                        <p>Our goal is simple: to make sure your memories last a lifetime. Whether you're preserving family events or archiving historical moments, we’re here to help make that happen.</p>
+                            </div>
+                </div>
+            </div>
+            <!-- Image on the right -->
+            <div class="col-md-6 order-md-2">
+                <img src="{% static 'images/pages/tech.jpg' %}" alt="Tech Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+</section>
+{% endblock %}

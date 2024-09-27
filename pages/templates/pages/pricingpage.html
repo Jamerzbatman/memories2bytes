@@ -1,0 +1,175 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}Pricing - Memories2Bytes{% endblock %}
+
+{% block content %}
+<header class="about-header" style="background-image: url('{% static 'images/pages/aboutUs.jpg' %}');">
+    <div class="container">
+        <h1 class="text-center mb-4">Pricing</h1>
+    </div>
+</header>
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <h2 class="text-center">How We Determine Pricing</h2>
+        <p class="text-center mb-5" style="color: #e0e0e0;">Pricing that reflects the unique needs of each project. Our pricing is based on the condition of the media, the type of media being converted, and the quantity of items you want to preserve.</p>
+        <div class="row">
+            <!-- Card 1: Media Condition -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-search fa-3x mb-3"></i> <!-- Condition Icon -->
+                        <h5 class="card-title">Media Condition</h5>
+                        <p class="card-text">The state of your media can affect the conversion process. We assess each item to determine the care needed for optimal results.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 2: Type of Media -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-film fa-3x mb-3"></i> <!-- Media Type Icon -->
+                        <h5 class="card-title">Type of Media</h5>
+                        <p class="card-text">Whether it's video tapes, audio recordings, or photographs, each type has specific requirements and techniques for the best conversion.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 3: Quantity of Media -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-box fa-3x mb-3"></i> <!-- Quantity Icon -->
+                        <h5 class="card-title">Quantity of Media</h5>
+                        <p class="card-text">The total number of items you wish to convert also plays a role in pricing. We offer competitive rates for larger quantities, ensuring affordability for all your preservation needs.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Background image overlay -->
+                </div>
+            </div>
+        </div>
+        <!-- Trust Section -->
+        <div class="trust-section text-center mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+    
+                    <p style="color: #e0e0e0;">At Memories2Bytes, we believe in transparency when it comes to pricing. On average, the cost for preserving your cherished media is $1 per image, $30 per video, and $25 per audio tape. These prices apply to media that is in good condition, requiring only standard cleaning. For any items that need deep cleaning or additional care, we’ll provide a customized quote to ensure you receive the best value for your investment. Trust us to handle your memories with the attention they deserve.</p>
+                </div>
+            </div>
+            </div>
+        <br>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="mb-4">Media Condition</h2>
+                <p class="lead">
+                    At Memories2Bytes, we take media condition seriously. When your tapes and other formats arrive, we assess their condition to ensure the best quality conversions. 
+                </p>
+                <p>
+                    For media that appears clean, we perform a quick wipe to remove any dust and fuzz. However, if there is mold or flaking on the tapes, we take the time to disassemble them for thorough cleaning. This meticulous process not only prevents contaminants from affecting your final product but also protects our machines from damage. Unlike big box stores that may simply label unplayable media with a red tag, we prioritize quality by ensuring everything is clean before conversion.
+                </p>
+            </div>
+        </div>
+
+        <!-- Icons Section -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-3 text-center">
+                <i class="fas fa-check-circle fa-3x mb-3 text-success"></i>
+                <p><strong>Clean Media</strong><br>Quick wipe for best results.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fas fa-biohazard fa-3x mb-3 text-warning"></i>
+                <p><strong>Moldy Media</strong><br>Thorough disassembly and cleaning.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fas fa-exclamation-triangle fa-3x mb-3 text-danger"></i>
+                <p><strong>Flaking Media</strong><br>Careful handling to prevent damage.</p>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+</section>
+
+<!-- Midea -->
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="text-center">Media We Convert</h2>
+                <p class="text-center mb-5" style="color: #e0e0e0;">We specialize in converting all types of media to digital formats, including audio, video, and images. Each format is handled with precision to ensure the best quality transfer.</p>        
+            </div>
+        </div>
+        <div class="row">
+            <!-- Card 1: Audio -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-music fa-3x mb-3"></i> <!-- Audio Icon -->
+                        <h5 class="card-title">Audio Conversion</h5>
+                        <p class="card-text">We carefully convert audio cassettes, records, and more to high-quality digital formats.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Audio background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 2: Video -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-video fa-3x mb-3"></i> <!-- Video Icon -->
+                        <h5 class="card-title">Video Conversion</h5>
+                        <p class="card-text">We convert VHS, Betamax, and more to clear digital video formats for easy sharing.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Video background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 3: Images -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-image fa-3x mb-3"></i> <!-- Image Icon -->
+                        <h5 class="card-title">Image Conversion</h5>
+                        <p class="card-text">We digitize photos, slides, and negatives to preserve your memories.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image background image overlay -->
+                </div>
+            </div>
+        </div>
+        <!-- Trust Section -->
+        <div class="trust-section text-center mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p style="color: #e0e0e0;">Your memories are stored on media that, over time, degrades. Whether it's a video tape, photo, or audio recording, these formats have a limited shelf life, and with each passing year, the risk of losing them increases. At Memories2Bytes, we understand the importance of acting now. Our advanced technology ensures that we not only convert your memories to digital formats, but also enhance and restore them, so they remain vivid and clear for future generations. Don’t let time fade what matters most—preserve your memories with us before they’re lost forever.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <p class="lead">At Memories2Bytes, we understand the importance of your memories and the various formats they come in. Whether you have a collection of VHS tapes, audio cassettes, or old photographs, our expert team is committed to providing high-quality digital conversions tailored to your needs.</p>
+                <p>To ensure fairness and value, we offer volume discounts for larger projects—if you bring us more than 1000 items, you’ll receive a 10% discount on your total cost. Additionally, we categorize the condition of your media, ranging from clean to heavily moldy, so we can provide the best possible service while keeping you informed about the necessary care for each piece.</p>
+            </div>    
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+
+    </div>
+    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+</section>
+{% endblock %}

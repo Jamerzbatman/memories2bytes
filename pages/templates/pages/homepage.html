@@ -1,0 +1,165 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}Memories2Bytes{% endblock %}
+
+{% block content %}
+    <!-- Full-Screen Hero Image -->
+    <header class="hero" style="background-image: url('{% static 'images/pages/main.jpg' %}');">
+        <div class="overlay"></div> <!-- Overlay div -->
+        <div class="container text-center">
+            <h1 class="display-4">Transforming Your Memories</h1>
+            <p class="lead">From tapes to digital, preserving your precious moments.</p>
+            <br>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+    </header>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="text-center">Our Process</h2>
+        <div class="row mt-4">
+            <!-- Card 1: Cleaning -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-broom fa-3x mb-3"></i> <!-- Icon for cleaning -->
+                        <h5 class="card-title">We Clean All Media</h5>
+                        <p class="card-text">Our team carefully cleans all media to ensure the best quality conversion.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+                </div>
+            </div>
+            <!-- Card 2: Converting -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-exchange-alt fa-3x mb-3"></i> <!-- Icon for converting -->
+                        <h5 class="card-title">Best Conversion</h5>
+                        <p class="card-text">We ensure the highest quality conversion for your precious memories.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+                </div>
+            </div>
+            <!-- Card 3: Sharing -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-share-alt fa-3x mb-3"></i> <!-- Icon for sharing -->
+                        <h5 class="card-title">Instant Sharing</h5>
+                        <p class="card-text">Once converted, you’ll receive a link to download your files right away!</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+                </div>
+            </div>
+
+        </div>
+        <!-- Additional Text about the Process -->
+        <div class="text-center mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p class="lead">Our proven process ensures that your memories are handled with care and converted with the utmost quality. Each step is designed to provide the best results, preserving the essence of your cherished moments.</p>
+                    <p>From meticulous cleaning to high-quality conversion and instant sharing, we guarantee a seamless experience that brings your memories back to life. Trust us to take care of your valuable media and deliver it in a way that you'll cherish forever! Learn more about our <a href="/process" style="color: #FFD700;">process</a>.</p>                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+
+                <h2 class="text-center">Why Choose Us?</h2>
+                <p class="text-center">
+                    At Memories2Bytes, we treat your memories with the respect and care they deserve. Unlike big box stores that often rush through the process, we go the extra mile to ensure that the audio is crystal clear, the video is sharp, and every detail is preserved. Here’s why we’re the better choice:</p>
+                <ul class="list-unstyled text-center mt-4">
+                    <li><strong>Professional Restoration:</strong> We don’t just convert your media — we clean and restore it, making sure your audio and video are free of static, fuzziness, and other imperfections.</li>            
+                    <li><strong>Attention to Detail:</strong> Big box stores may send your media back with a red tape saying it can’t be fixed. At Memories2Bytes, we take the time to repair and restore your tapes, ensuring every moment is preserved.</li>           
+                    <li><strong>Personalized Care:</strong> We know how precious these memories are, and we handle each project as if it were our own. You won’t get the same level of care from large corporations.</li> 
+                    <li><strong>No Surprises:</strong> Once your media is converted, you’ll receive an instant download link — no waiting, no additional fees, no excuses.</li> 
+                    <li><strong>High-Quality Results:</strong> Our state-of-the-art technology ensures that your files are returned in the best possible condition, with clear audio, vibrant video, and no compromises.</li>
+                </ul>
+                <div class="text-center">
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+</section>
+
+
+<!-- Midea -->
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="text-center">Media We Convert</h2>
+                <p class="text-center mb-5" style="color: #e0e0e0;">We specialize in converting all types of media to digital formats, including audio, video, and images. Each format is handled with precision to ensure the best quality transfer.</p>        
+            </div>
+        </div>
+        <div class="row">
+            <!-- Card 1: Audio -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-music fa-3x mb-3"></i> <!-- Audio Icon -->
+                        <h5 class="card-title">Audio Conversion</h5>
+                        <p class="card-text">We carefully convert audio cassettes, records, and more to high-quality digital formats.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Audio background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 2: Video -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-video fa-3x mb-3"></i> <!-- Video Icon -->
+                        <h5 class="card-title">Video Conversion</h5>
+                        <p class="card-text">We convert VHS, Betamax, and more to clear digital video formats for easy sharing.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Video background image overlay -->
+                </div>
+            </div>
+
+            <!-- Card 3: Images -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center position-relative overflow-hidden">
+                    <div class="card-body position-relative" style="z-index: 2;">
+                        <i class="fas fa-image fa-3x mb-3"></i> <!-- Image Icon -->
+                        <h5 class="card-title">Image Conversion</h5>
+                        <p class="card-text">We digitize photos, slides, and negatives to preserve your memories.</p>
+                    </div>
+                    <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image background image overlay -->
+                </div>
+            </div>
+        </div>
+        <!-- Trust Section -->
+        <div class="trust-section text-center mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p style="color: #e0e0e0;">Your memories are stored on media that, over time, degrades. Whether it's a video tape, photo, or audio recording, these formats have a limited shelf life, and with each passing year, the risk of losing them increases. At Memories2Bytes, we understand the importance of acting now. Our advanced technology ensures that we not only convert your memories to digital formats, but also enhance and restore them, so they remain vivid and clear for future generations. Don’t let time fade what matters most—preserve your memories with us before they’re lost forever.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Call to Action -->
+    <section class="py-5 position-relative overflow-hidden">
+        <div class="container text-center">
+            <h2 class="text-center">Get Started Today!</h2>
+            <p >Ready to convert your memories? Contact us now to learn more about our services!</p>
+            <br>
+            <div class="text-center">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+            </div>
+        </div>
+        <div class="overlay-image" style="background-image: url('{% static 'images/pages/bytes.png' %}');"></div> <!-- Image overlay -->
+    </section>
+
+{% endblock %}

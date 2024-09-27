@@ -1,0 +1,121 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}Process - Memories2Bytes{% endblock %}
+
+{% block content %}
+<header class="about-header" style="background-image: url('{% static 'images/pages/aboutUs.jpg' %}');">
+    <div class="container">
+        <h1 class="text-center mb-4">Our Process</h1>
+    </div>
+</header>
+<!-- Section 1: Why We Use This Process -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 class="text-center mb-4">Why We Use This Process</h2>
+                <p class="text-center">
+                    Analog media, such as tapes and photos, have a limited shelf life. Over time, these precious memories degrade and can become unplayable. That’s why we follow a detailed process to preserve and restore them before it’s too late. Our proven methods ensure every step is done with precision, ensuring the best possible outcome for your irreplaceable memories.
+                </p>
+            </div>
+        </div>
+        <!-- Icon Row -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-3 text-center">
+                <i class="fas fa-broom fa-3x mb-3"></i>
+                <p>Thorough Cleaning</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fas fa-exchange-alt fa-3x mb-3" ></i>
+                <p>Seamless Conversion</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fas fa-share-alt fa-3x mb-3"></i>
+                <p>Shareable Digital Files</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Section 2: The Converting Process -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 text-right">
+                <img src="{% static 'images/pages/clean.jpg' %}" alt="Cleaning Process" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-2 text-left">
+                <div class="row justify-content-left">
+                    <div class="col-md-8">
+                        <h2 class="mb-4">The Cleaning Process</h2>
+                        <p class="text-md-left" style="line-height: 1.8;">
+                            Before we start converting, every piece of media goes through a thorough cleaning process. We meticulously remove dirt, dust, and even mold from tapes and discs, ensuring that the playback quality is as clear as possible. This step is essential to guarantee that your media is free of any obstructions that could interfere with the digital conversion process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section 3: The Converting Process -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 text-right"> 
+                <div class="row justify-content-right">
+                    <div class="col-md-8">
+                        <h2 class="mb-4"> The Converting Process</h2>
+                        <p class="text-md-right" style="line-height: 1.8;">
+                            Using state-of-the-art equipment, we convert your media into high-quality digital formats. We pay close attention to detail, enhancing video clarity, removing noise, and ensuring the audio is crisp. We know how important these memories are, and that’s why we take extra care to avoid errors during the conversion process, providing you with the best possible result.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image on the right -->
+            <div class="col-md-6 order-md-2">
+                <img src="{% static 'images/pages/conversion.jpg' %}" alt="Converting Process" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 text-right">
+                <img src="{% static 'images/pages/receiving.jpg' %}" alt="Cleaning Process" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-2 text-left">
+                <div class="row justify-content-left">
+                    <div class="col-md-8">
+                        <h2 class="mb-4"> Receiving Your Link & Old Media</h2>
+                        <p class="text-md-left" style="line-height: 1.8;">
+                            Once the conversion is complete, we’ll send you a secure download link so you can access your digital files immediately. Alongside this, we carefully package and return your original media, so you can keep both the old and new versions. No need to wait—your memories are ready to enjoy again without any delay.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section 5: Conclusion & Call to Action -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Preserve Your Memories Today</h2>
+        <p class="text-center">
+            Don’t let time erase your cherished memories. Our process is designed to save your media before it’s lost forever. Get in touch with us today and see how we can bring your memories back to life.
+        </p>
+        <div class="text-center mt-4">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
