@@ -69,12 +69,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Log in using your preferred method:</p>
-                <div id="g_id_onload"
-                     data-client_id="856244480323-pshrpc4np7351cpirh1qhooed67otprs.apps.googleusercontent.com"
-                     data-callback="handleCredentialResponse">
-                </div>
-                <div class="g_id_signin" data-type="standard"></div>
+                <p>Google Sign In:</p>
+                {% load socialaccount %}
+                <a href="{% provider_login_url 'google' %}?next=/dashboard">Google Login</a>
             </div>
         </div>
     </div>
@@ -85,27 +82,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-<script>
-    function handleCredentialResponse(response) {
-        console.info("Inside handleCredentialResponse");
-        if (response && response.credential) {
-            console.info("Response received", response.credential);
-            // Handle successful sign-in (store token, etc.)
-            $('#logInModal').modal('hide');
-            window.location.href = '/dashboard'; 
-        } else {
-            console.error("No credential found in response");
-        }
-    }
-
-    // Load Google Sign-In script
-    const script = document.createElement('script');
-    script.src = "https://accounts.google.com/gsi/client";
-    document.body.appendChild(script);
-    
-    
-    </script>
 </body>
 </html>
