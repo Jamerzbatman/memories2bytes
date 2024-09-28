@@ -7,44 +7,45 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="position-sticky">
+                <button id="toggle-sidebar" class="btn btn-light" onclick="toggleSidebar()">
+                    <i class="fas fa-angle-left"></i>
+                </button>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="loadSection('user-management')">
-                            User Management
+                        <a class="nav-link active" href="#" onclick="loadSection('dashboard')">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="sidebar-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="loadSection('media-reports')">
-                            Media Reports
+                            <i class="fas fa-box"></i>
+                            <span class="sidebar-text">Orders</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadSection('quotes')">
+                            <i class="fas fa-comments"></i>
+                            <span class="sidebar-text">Quotes</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="loadSection('system-settings')">
-                            System Settings
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadSection('support-requests')">
-                            Support Requests
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" href="{% url 'logout' %}">
-                            Log Out
+                            <i class="fas fa-cog"></i>
+                            <span class="sidebar-text">Settings</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
-
         <!-- Main Content Area -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
             <div id="content-area" class="mt-4">
-                <div id="user-management" class="card">
+                <div id="dashboard" class="card">
                     <div class="card-header">
-                        User Management
+                        Dashboard
                     </div>
                     <div class="card-body">
                         <p>This section will allow staff to manage users.</p>
@@ -69,9 +70,9 @@
                         <!-- Add system settings content here -->
                     </div>
                 </div>
-                <div id="support-requests" class="card" style="display: none;">
+                <div id="quotes" class="card" style="display: none;">
                     <div class="card-header">
-                        Support Requests
+                        Quotes
                     </div>
                     <div class="card-body">
                         <p>This section will display user support requests.</p>
@@ -84,6 +85,25 @@
 </div>
 
 <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+
+        const toggleIcon = document.getElementById('toggle-sidebar').querySelector('i');
+        toggleIcon.classList.toggle('fa-angle-left');
+        toggleIcon.classList.toggle('fa-angle-right');
+
+        // Toggle the visibility of sidebar text
+        const sidebarTexts = document.querySelectorAll('.sidebar-text');
+        sidebarTexts.forEach(function(text) {
+            if (sidebar.classList.contains('collapsed')) {
+                text.style.display = 'none'; // Hide text when collapsed
+            } else {
+                text.style.display = 'inline'; // Show text when expanded
+            }
+        });
+    }
+
     // Function to load the selected section
     function loadSection(sectionId) {
         // Hide all sections
@@ -95,9 +115,9 @@
         document.getElementById(sectionId).style.display = 'block';
     }
 
-    // Load the user management section by default
+    // Load the dashboard section by default
     document.addEventListener('DOMContentLoaded', function() {
-        loadSection('user-management');
+        loadSection('dashboard');
     });
 </script>
 {% endblock %}

@@ -283,6 +283,9 @@ img.img-frame {
     color: #e0e0e0; 
 }
 .sidebar {
+    width: 150px;
+    transition: width 0.3s ease;
+    overflow: hidden;
     height: 100vh; /* Full height */
     padding: 20px 15px; /* Padding for the sidebar */
     background-color: #343a40; /* Light gray for hover */
@@ -290,15 +293,26 @@ img.img-frame {
 }
 
 .sidebar .nav-link {
-    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #e0e0e0;
 }
-
-.sidebar .nav-link.active {
-    font-weight: bold;
-    color: #e0b700; /* Bootstrap primary color */
+.sidebar.collapsed {
+    width: 60px; /* Collapsed width */
 }
 
 .sidebar .nav-link:hover {
     background-color: #212529; /* Light gray for hover */
 }
+.sidebar .nav-link i {
+    margin-right: 10px; /* Space between icon and text */
+}
 
+.sidebar.collapsed .nav-link span {
+    display: none; /* Hide text in collapsed state */
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center; /* Center icon when collapsed */
+}
