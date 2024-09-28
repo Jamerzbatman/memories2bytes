@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Link to your CSS file -->
 </head>
 <body>
-    {% include 'pages/nav.html' %}  <!-- Include the navigation template -->
+    {% include 'dashboard/nav.html' %}  <!-- Include the navigation template -->
 
     <div class="container">
         {% block content %}
@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    {% include 'pages/footer.html' %}
+    {% include 'dashboard/footer.html' %}
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
