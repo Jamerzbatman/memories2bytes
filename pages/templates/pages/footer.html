@@ -16,8 +16,14 @@
                     <li><a href="/pricing" class="text-light">Pricing</a></li>
                     <li><a href="/process" class="text-light">Our Process</a></li>
                     <li><a href="#" class="text-light" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
-                    {% load socialaccount %}
-                    <li><a href="{% provider_login_url 'google' %}?next=/dashboard" class="text-light">Log In</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="text-light" href="/logout">Log Out</a>
+                        </li>
+                    {% else %}
+                        {% load socialaccount %}
+                        <li><a href="{% provider_login_url 'google' %}?next=/dashboard" class="text-light">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- Right Side: Additional Links or Information -->

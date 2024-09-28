@@ -20,6 +20,7 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 
 INSTALLED_APPS = [
     'pages',
+    'quotes',
     'dashboard',
     'django.contrib.sites',
     'django.contrib.admin',

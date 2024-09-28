@@ -27,65 +27,162 @@
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <!-- Step 1: User Information -->
+                <div id="step1">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Contact Us - Step 1</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="nextStep">Next</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" required>
+    
+                <!-- Step 2: Media Information -->
+                <div id="step2" style="display: none;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Media Information - Step 2</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enter the media details:</p>
+                        <div id="mediaList">
+                            <div class="media-item">
+                                <div class="form-group">
+                                    <label for="mediaType">Type of Media</label>
+                                    <select class="form-control" name="mediaType">
+                                        <option value="video">Video</option>
+                                        <option value="audio">Audio</option>
+                                        <option value="image">Image</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" name="quantity" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="condition">Condition</label>
+                                    <select class="form-control" name="condition">
+                                        <option value="clean">Clean</option>
+                                        <option value="semi_clean">Semi Clean</option>
+                                        <option value="needs_help">Needs Help</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" id="addMedia">Add More Media</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="prevStep">Previous</button>
+                        <button type="button" class="btn btn-primary" id="submitForm">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- Login Modal -->
-<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="logInModalLabel">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {% load socialaccount %}
-                <!-- Create a button that looks nice and wide -->
-                <a href="{% provider_login_url 'google' %}?next=/dashboard" class="btn btn-primary btn-lg btn-block">
-                    <i class="fab fa-google"></i> Sign in with Google
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-    {% include 'pages/footer.html' %}
+        {% include 'pages/footer.html' %}
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const nextStepButton = document.getElementById('nextStep');
+    const prevStepButton = document.getElementById('prevStep');
+    const submitButton = document.getElementById('submitForm');
+    const addMediaButton = document.getElementById('addMedia');
 
-</body>
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('email');
+
+    nextStepButton.addEventListener('click', function() {
+        if (firstNameInput.value && lastNameInput.value && emailInput.value) {
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+        } else {
+            alert('Please fill out all required fields.');
+        }
+    });
+
+    prevStepButton.addEventListener('click', function() {
+        step2.style.display = 'none';
+        step1.style.display = 'block';
+    });
+
+    addMediaButton.addEventListener('click', function() {
+        const mediaList = document.getElementById('mediaList');
+        const mediaItem = document.querySelector('.media-item').cloneNode(true);
+        mediaList.appendChild(mediaItem);
+    });
+
+    submitButton.addEventListener('click', function() {
+        const mediaData = [];
+        document.querySelectorAll('.media-item').forEach((item) => {
+            const mediaType = item.querySelector('[name="mediaType"]').value;
+            const quantity = item.querySelector('[name="quantity"]').value;
+            const condition = item.querySelector('[name="condition"]').value;
+
+            mediaData.push({ mediaType, quantity, condition });
+        });
+
+        const firstName = firstNameInput.value;
+        const lastName = lastNameInput.value;
+        const email = emailInput.value;
+
+        fetch('/quotes/add/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                media: mediaData
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Form submitted successfully!');
+                $('#contactModal').modal('hide'); // Hide the modal
+            } else {
+                alert('Error submitting form: ' + JSON.stringify(data.errors));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+        </script>
+        </body>
 </html>
