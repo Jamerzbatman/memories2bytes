@@ -32,7 +32,7 @@ DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,whale-app-b4b3c.ondigitalocean.app").split(",")
 
 
-
+print(os.getenv("DJANGO_ALLOWED_HOSTS"))
 # Application definition
 
 INSTALLED_APPS = [
