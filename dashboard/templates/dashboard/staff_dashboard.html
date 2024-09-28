@@ -14,25 +14,25 @@
                 </button>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="loadSection('dashboard')">
+                        <a class="nav-link active" href="#" onclick="loadSection('dashboard')" data-text="Dashboard">
                             <i class="fas fa-tachometer-alt"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadSection('media-reports')">
+                        <a class="nav-link" href="#" onclick="loadSection('media-reports')" data-text="Orders">
                             <i class="fas fa-box"></i>
                             <span class="sidebar-text">Orders</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadSection('quotes')">
+                        <a class="nav-link" href="#" onclick="loadSection('quotes')" data-text="Quotes">
                             <i class="fas fa-comments"></i>
                             <span class="sidebar-text">Quotes</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadSection('system-settings')">
+                        <a class="nav-link" href="#" onclick="loadSection('system-settings')" data-text="Settings">
                             <i class="fas fa-cog"></i>
                             <span class="sidebar-text">Settings</span>
                         </a>
@@ -40,8 +40,8 @@
                 </ul>
             </div>
         </nav>
-        <!-- Main Content Area -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+                        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-4" style="position: relative; z-index: 1;">
             <div id="content-area" class="mt-4">
                 <div id="dashboard" class="card">
                     <div class="card-header">
@@ -119,5 +119,40 @@
     document.addEventListener('DOMContentLoaded', function() {
         loadSection('dashboard');
     });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const tooltipText = link.getAttribute('data-text');
+        const tooltipDiv = document.createElement('div');
+        tooltipDiv.classList.add('tooltip');
+        tooltipDiv.innerText = tooltipText;
+
+        // Append tooltip to the body for easier positioning
+        document.body.appendChild(tooltipDiv);
+
+        // Show tooltip on hover
+        link.addEventListener('mouseenter', (event) => {
+            const sidebar = document.getElementById('sidebar'); // Get the sidebar element
+
+            // Only show tooltip if the sidebar is collapsed
+            if (sidebar.classList.contains('collapsed')) {
+                tooltipDiv.style.display = 'block'; // Show tooltip
+                tooltipDiv.style.opacity = '1'; // Set opacity to 1
+                tooltipDiv.style.zIndex = '2'; // Set tooltip in front of main content
+
+                // Position the tooltip
+                const rect = link.getBoundingClientRect(); // Get link's position
+                tooltipDiv.style.left = `${rect.left}px`; // Align with the link
+                tooltipDiv.style.top = `${rect.bottom + window.scrollY}px`; // Place it below the link
+            }
+        });
+
+        // Hide tooltip when not hovering
+        link.addEventListener('mouseleave', () => {
+            tooltipDiv.style.display = 'none'; // Hide tooltip
+            tooltipDiv.style.opacity = '0'; // Reset opacity
+        });
+    });
+
+
+
 </script>
 {% endblock %}

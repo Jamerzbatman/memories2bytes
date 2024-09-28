@@ -297,6 +297,7 @@ img.img-frame {
     align-items: center;
     padding: 10px;
     color: #e0e0e0;
+    
 }
 .sidebar.collapsed {
     width: 60px; /* Collapsed width */
@@ -314,5 +315,27 @@ img.img-frame {
 }
 
 .sidebar.collapsed .nav-link {
-    justify-content: center; /* Center icon when collapsed */
+    justify-content: left; /* Center icon when collapsed */
 }
+.nav-link {
+    position: relative; /* Required for tooltip positioning */
+}
+
+.tooltip {
+    display: none; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    position: absolute; /* Position it absolutely */
+    z-index: 2; /* Ensure it's above the main content */
+    background-color: #333; /* Background color for visibility */
+    color: #fff; /* Text color */
+    padding: 5px; /* Some padding */
+    border-radius: 4px; /* Rounded corners */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-link:hover .tooltip {
+    display: block; /* Show tooltip on hover */
+    opacity: 1; /* Fade in effect */
+}
+
