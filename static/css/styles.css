@@ -11,6 +11,7 @@ nav {
     background-color: #1F1F1F; /* Darker green */
     color: #e0e0e0; /* Light text color */
     padding: 10px 20px;
+    border-bottom: black 5px solid;
 }
 
 nav ul {
@@ -281,3 +282,23 @@ img.img-frame {
     border: none; 
     color: #e0e0e0; 
 }
+.sidebar {
+    height: 100vh; /* Full height */
+    padding: 20px 15px; /* Padding for the sidebar */
+    background-color: #343a40; /* Light gray for hover */
+
+}
+
+.sidebar .nav-link {
+    color: #333;
+}
+
+.sidebar .nav-link.active {
+    font-weight: bold;
+    color: #e0b700; /* Bootstrap primary color */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #212529; /* Light gray for hover */
+}
+
