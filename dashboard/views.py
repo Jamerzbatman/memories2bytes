@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
 def dashboard_view(request):
-    return render(request, 'pages/dashbaordpage.html')
+    return render(request, 'dashboard/dashbaordpage.html')
