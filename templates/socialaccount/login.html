@@ -4,19 +4,19 @@
 {% block title %}Memories2Bytes{% endblock %}
 
 {% block content %}
-
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
-        <h3 class="card-title text-center mb-4">Log In</h3>
-        <form method="post" action="">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger btn-lg btn-block d-flex align-items-center justify-content-center">
-                <i class="fab fa-google"></i>
-                <span class="ml-2">Sign in with Google</span>
-            </button>
-        </form>    
+<header class="hero" style="background-image: url('{% static 'images/pages/main.jpg' %}');">
+    <div class="overlay"></div> <!-- Overlay div -->
+    <div class="container text-center">
+        <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+            <form method="post" action="">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg btn-block d-flex align-items-center justify-content-center">
+                    <i class="fab fa-google"></i>
+                    <span class="ml-2">Sign in with Google</span>
+                </button>
+            </form>    
+        </div>
     </div>
-</div>
-
+</header>
 {% endblock %}
 
