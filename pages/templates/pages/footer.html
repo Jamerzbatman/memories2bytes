@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <footer class="bg-dark text-light mt-4 py-4">
     <div class="container">
         <div class="row">
@@ -15,7 +16,8 @@
                     <li><a href="/pricing" class="text-light">Pricing</a></li>
                     <li><a href="/process" class="text-light">Our Process</a></li>
                     <li><a href="#" class="text-light" data-toggle="modal" data-target="#contactModal">Contact Us</a></li>
-                    <li><a href="#" class="text-light" data-toggle="modal" data-target="#logInModal">Log In</a></li>
+                    {% load socialaccount %}
+                    <li><a href="{% provider_login_url 'google' %}?next=/dashboard" class="text-light">Log In</a></li>
                 </ul>
             </div>
             <!-- Right Side: Additional Links or Information -->

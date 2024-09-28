@@ -34,13 +34,16 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 ]
 
-SOCIALACCOUNT_PROVIDERS ={
-    "google":{
-        "SCOPE":[
-            "profile",
-            "email"
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
         ],
-        "AUTH_PARAMS": {"access_type": "online"}
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
     }
 }
 
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'memories2bytes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # Ensure this path is correct
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +125,6 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend"
 ]
 
-LOGIN_REDIRECT_URL =  "/dashboard"
+LOGIN_REDIRECT_URL = "/dashboard" 
 
 LOGOUT_REDIRECT_URL = "/" 

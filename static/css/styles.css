@@ -268,3 +268,16 @@ img.img-frame {
     margin-right: 0; 
     margin-left: 0;
 }
+.btn-light {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+}
+
+.btn-light:hover,
+.btn-light:active {
+    text-decoration: underline; 
+    background: none; 
+    border: none; 
+    color: #e0e0e0; 
+}
