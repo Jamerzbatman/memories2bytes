@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 
 class Quote(models.Model):
     user = models.ForeignKey(User, related_name='media_details', on_delete=models.CASCADE)
-    hash = models.CharField(max_length=64, unique=True, editable=False)  # Use CharField for the hash
+    hash = models.CharField(max_length=64, unique=True, editable=False)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  # Field to store the total quote amount
 
     def save(self, *args, **kwargs):
         # Generate a unique hash based on user ID and current timestamp
@@ -15,6 +16,7 @@ class Quote(models.Model):
 
     def __str__(self):
         return f"{self.hash}"
+    
 
 class MediaDetail(models.Model):
     MEDIA_TYPE_CHOICES = [

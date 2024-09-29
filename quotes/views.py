@@ -40,8 +40,9 @@ def add_quote_view(request):
                     user.set_unusable_password()  # Create user without password
                     user.save()
 
-                # Create a new Quote instance for the user
-                quote = Quote(user=user)
+
+                quote = Quote(user=user, total_amount=data.get('totalQuote'))
+
                 quote.save()  # Save the Quote to generate the hash
 
                 # Process media details from the request

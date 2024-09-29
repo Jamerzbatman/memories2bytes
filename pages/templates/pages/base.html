@@ -66,28 +66,34 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Please enter the media details:</p>
+                        <h5>Please enter the media details:</h5>
+                        <p>
+                            This section allows you to provide information about the media you want to convert. 
+                            Please fill out the details for each type of media you are submitting.
+                        </p>
                         <div id="mediaList">
                             <div class="media-item">
-                                <div class="form-group">
-                                    <label for="mediaType">Type of Media</label>
-                                    <select class="form-control" name="mediaType">
-                                        <option value="video">Video</option>
-                                        <option value="audio">Audio</option>
-                                        <option value="image">Image</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="quantity">Quantity</label>
-                                    <input type="number" class="form-control" name="quantity" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="condition">Condition</label>
-                                    <select class="form-control" name="condition">
-                                        <option value="clean">Clean</option>
-                                        <option value="semi_clean">Semi Clean</option>
-                                        <option value="needs_help">Needs Help</option>
-                                    </select>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="mediaType">Type of Media</label>
+                                        <select class="form-control mediaType">
+                                            <option value="video">Video</option>
+                                            <option value="audio">Audio</option>
+                                            <option value="image">Image</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="quantity">Quantity</label>
+                                        <input type="number" class="form-control quantity" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="condition">Condition</label>
+                                        <select class="form-control condition">
+                                            <option value="clean">Clean</option>
+                                            <option value="semi_clean">Semi Clean</option>
+                                            <option value="needs_help">Needs Help</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,19 +101,100 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="prevStep">Previous</button>
+                        <button type="button" class="btn btn-primary" id="calculateQuote">Calculate Quote</button>
+                    </div>
+                </div>
+    
+                <!-- Step 3: Quote -->
+                <div id="step3" style="display: none;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Quote - Step 3</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Your Quote:</h5>
+                        <p id="quoteAmount">The total quote amount will be displayed here.</p>
+                        <p class="quote-info">
+                            Please note that this is a preliminary quote based on the information you provided.
+                            The final price may vary based on additional factors such as media condition, 
+                            special requirements, and shipping costs.
+                        </p>
+                        <p>
+                            Once you submit this form, a member of our team will review your details and contact you 
+                            shortly to discuss your project and provide a final estimate.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="prevStepQuote">Previous</button>
                         <button type="button" class="btn btn-primary" id="submitForm">Submit</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-        {% include 'pages/footer.html' %}
+            {% include 'pages/footer.html' %}
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
+<script>
+const mediaRates = {
+    video: 35,
+    audio: 25,
+    image: 1,
+};
+
+const conditionRates = {
+    clean: 0,
+    semi_clean: 5,
+    needs_help: 10,
+};
+
+// Function to calculate the quote
+function calculateQuote() {
+    let totalQuote = 0;
+    
+    // Iterate through each media item
+    document.querySelectorAll('.media-item').forEach(item => {
+        const mediaType = item.querySelector('.mediaType').value;
+        const quantity = parseInt(item.querySelector('.quantity').value) || 0;
+        const condition = item.querySelector('.condition').value;
+
+        // Calculate quote based on type, condition, and quantity
+        totalQuote += (mediaRates[mediaType] + conditionRates[condition]) * quantity;
+    });
+
+    // Display the calculated quote
+    document.getElementById('quoteAmount').innerText = `$${totalQuote.toFixed(2)}`;
+}
+
+// Event listeners
+document.getElementById('nextStep').addEventListener('click', function() {
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+});
+
+document.getElementById('prevStep').addEventListener('click', function() {
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('step1').style.display = 'block';
+});
+
+document.getElementById('calculateQuote').addEventListener('click', function() {
+    calculateQuote();
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('step3').style.display = 'block';
+});
+
+document.getElementById('prevStepQuote').addEventListener('click', function() {
+    document.getElementById('step3').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const nextStepButton = document.getElementById('nextStep');
     const prevStepButton = document.getElementById('prevStep');
@@ -143,12 +230,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitButton.addEventListener('click', function() {
         const mediaData = [];
-        document.querySelectorAll('.media-item').forEach((item) => {
-            const mediaType = item.querySelector('[name="mediaType"]').value;
-            const quantity = item.querySelector('[name="quantity"]').value;
-            const condition = item.querySelector('[name="condition"]').value;
+        let totalQuote = 0;  // Initialize total quote amount
+        const pricePerUnit = 10; // Define your price per unit (change as needed)
 
-            mediaData.push({ mediaType, quantity, condition });
+        document.querySelectorAll('.media-item').forEach((item) => {
+            const mediaType = item.querySelector('.mediaType').value;
+            const quantity = parseInt(item.querySelector('.quantity').value, 10);
+            const condition = item.querySelector('.condition').value;
+
+            if (mediaType && quantity && condition) {
+                mediaData.push({ mediaType, quantity, condition });
+                totalQuote += quantity * pricePerUnit;  // Calculate total quote
+            } else {
+                alert('Please fill out all media details before submitting.');
+                return;
+            }
         });
 
         const firstName = firstNameInput.value;
@@ -165,14 +261,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 firstName,
                 lastName,
                 email,
-                media: mediaData
+                media: mediaData,
+                totalQuote  // Include total quote amount
             })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
                 alert('Form submitted successfully!');
-                $('#contactModal').modal('hide'); // Hide the modal
+                $('#contactModal').modal('hide');
             } else {
                 alert('Error submitting form: ' + JSON.stringify(data.errors));
             }
