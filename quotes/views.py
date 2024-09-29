@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from .forms import UserInfoForm, MediaDetailForm
@@ -75,3 +76,27 @@ def add_quote_view(request):
             return JsonResponse({'success': False, 'message': 'Invalid JSON'})
 
     return JsonResponse({'success': False, 'message': 'Invalid request method'})
+
+
+@login_required
+def user_quotes_view(request):
+    if request.user.is_authenticated:
+        quotes = Quote.objects.all().order_by('-id')
+        quotes_data = []
+        for quote in quotes:
+            media_details = [{
+                'type': media.get_type_display(),
+                'quantity': media.quantity,
+                'condition': media.condition
+            } for media in quote.media_details.all()]
+
+            quotes_data.append({
+                'quote_id': quote.id,
+                'first_name': quote.user.first_name.capitalize(),
+                'last_name': quote.user.last_name.capitalize(),
+                'total_amount': str(quote.total_amount),
+                'media_details': media_details
+            })
+        return JsonResponse({'quotes': quotes_data})
+    else:
+        return JsonResponse({'error': 'User not authenticated'}, status=403)

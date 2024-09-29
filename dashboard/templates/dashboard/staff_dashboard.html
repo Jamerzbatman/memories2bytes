@@ -70,13 +70,12 @@
                         <!-- Add system settings content here -->
                     </div>
                 </div>
-                <div id="quotes" class="card" style="display: none;">
+                <div id="quotes" class="card">
                     <div class="card-header">
                         Quotes
                     </div>
                     <div class="card-body">
-                        <p>This section will display user support requests.</p>
-                        <!-- Add support requests content here -->
+                        <p>Loading quotes...</p>
                     </div>
                 </div>
             </div>
@@ -152,7 +151,85 @@
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('/quotes/fetch/')
+    .then(response => response.json())
+    .then(data => {
+        if (data.quotes) {
+            const quoteContainer = document.querySelector('#quotes .card-body');
+            quoteContainer.innerHTML = '';  // Clear out any placeholder content
 
+            let rowDiv = null;  // Variable to keep track of the current row
+
+            data.quotes.forEach((quote, index) => {
+                // If it's the first quote or every second quote, create a new row div
+                if (index % 2 === 0) {
+                    rowDiv = document.createElement('div');
+                    rowDiv.classList.add('row', 'mb-3');  // Add a row with some margin-bottom
+                    quoteContainer.appendChild(rowDiv);   // Append row to container
+                }
+
+                // Create the column div for the quote button
+                const colDiv = document.createElement('div');
+                colDiv.classList.add('col-md-6');  // 6-column grid for two side-by-side
+
+                // Create the button for each quote
+                const quoteButton = document.createElement('button');
+                quoteButton.classList.add('btn', 'btn-primary', 'btn-block', 'text-left', 'mb-3');
+                quoteButton.setAttribute('type', 'button');
+                quoteButton.setAttribute('data-toggle', 'collapse');
+                quoteButton.setAttribute('data-target', `#quoteDetails${quote.quote_id}`);
+                
+                // Add quote info (user name and total amount)
+                quoteButton.innerHTML = `<h4 class="mb-0">${quote.first_name} ${quote.last_name}</h4>
+                                         <small class="text-muted">$${quote.total_amount}</small>`;
+
+                // Append the button to the column div
+                colDiv.appendChild(quoteButton);
+
+                // Create the collapse section for media details
+                const quoteDetails = document.createElement('div');
+                quoteDetails.id = `quoteDetails${quote.quote_id}`;
+                quoteDetails.classList.add('collapse');
+
+                // Create the card body to hold the media details
+                const cardBody = document.createElement('div');
+                cardBody.classList.add('card', 'card-body', 'row');
+
+                // Loop through media details and create divs for each
+                quote.media_details.forEach(media => {
+                    const mediaDiv = document.createElement('div');
+                    mediaDiv.classList.add('col-md-4');
+
+                    mediaDiv.innerHTML = `
+                        <div style="display: flex; justify-content: space-between;">
+                            <p>${media.type}</p>
+                            <p>${media.quantity}</p>
+                            <p>${media.condition}</p>
+                        </div>
+                    `;
+                    
+                    cardBody.appendChild(mediaDiv);
+                });
+
+                // Append card body to the collapse div
+                quoteDetails.appendChild(cardBody);
+                // Append collapse section to the column div
+                colDiv.appendChild(quoteDetails);
+
+                // Append the column div to the current row
+                rowDiv.appendChild(colDiv);
+            });
+        } else {
+            quoteContainer.innerHTML = '<p>No quotes available.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        const quoteContainer = document.querySelector('#quotes .card-body');
+        quoteContainer.innerHTML = '<p>An error occurred while loading the quotes.</p>';
+    });
+});
 
 </script>
 {% endblock %}

@@ -111,6 +111,24 @@ h1, p {
     transform: translateY(-5px); /* Lift effect on hover */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
+#quotes,
+#system-settings,
+#dashboard{
+    position: relative;
+    background-color: #343a40;
+    border: none; /* Remove default card border */
+    border-radius: 10px; /* Rounded corners */
+    transition: box-shadow 0.3s; /* Smooth transition for shadow on hover */
+    padding: 20px; /* Set consistent padding */
+    margin: 0; /* Ensure there are no margins */
+}
+
+#quotes:hover,
+#system-settings:hover,
+#dashboard:hover {
+    transform: translateY(0); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
 
 .card-body {
     position: relative;
